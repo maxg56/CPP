@@ -8,18 +8,18 @@ macOS=false
 update_sources() {
     local src_dir=$1
     local var_name=$2
+    local SRC_MK=$3
 
     # Vérifier si le répertoire source existe
     if [[ ! -d "$src_dir" ]]; then
         printf "\033[0;91mErreur : le répertoire source %s n'existe pas.\n\033[0;39m" "$src_dir"
         exit 1
     fi
-
     # Trouver les fichiers sources
     if [[ $macOS == true ]]; then
         src_files=$(find "$src_dir" -type f \( -name "*.cpp" -o -name "*.m" \))
     else
-        src_files=$(find "$src_dir" -type f -name "*.cpp")
+        src_files=$(find "$src_dir" -type f -name "*.cpp" | sed "s|$src_dir||")
     fi
 
     # Vérifier s'il y a des fichiers sources
@@ -31,7 +31,7 @@ update_sources() {
     # Construire la nouvelle ligne pour la variable
     new_line="$var_name \\"
     while IFS= read -r file; do
-        new_line+="$file "
+        new_line+=".$file "
     done <<< "$src_files"
 
 
@@ -52,10 +52,9 @@ $new_line" "$SRC_MK"
     fi
 }
 
+src_dir=$(find . -name "ex*" -type d)
 
-
-# Appels à la fonction pour mettre à jour plusieurs variables
-update_sources "." "SRC ="
-
-
+while IFS= read -r dir; do
+    update_sources "$dir" "SRC =" "$dir/$SRC_MK"
+done <<< "$src_dir"
 

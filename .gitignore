@@ -1,0 +1,6 @@
+.tmp/
+.vscode 
+.compiled_count
+*.o
+*.out
+vgcore.*
