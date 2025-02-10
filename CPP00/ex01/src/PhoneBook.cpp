@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:53:28 by max               #+#    #+#             */
-/*   Updated: 2025/02/06 10:45:32 by max              ###   ########.fr       */
+/*   Updated: 2025/02/10 17:21:51 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include <unistd.h>
 #include <cstdlib>
 
-
-
 PhoneBook::PhoneBook()
 {
     this->contact_index = 0;
@@ -26,32 +24,29 @@ PhoneBook::PhoneBook()
 
 void PhoneBook::add_contact()
 {   
-
-    std::string	name;
-	std::string	last;
-	std::string	nick;
-	std::string	phone;
-	std::string	secret;
-
+	std::string	ret[5];
+	std::string	contact[5] =
+	{
+		"Name",
+		"Surname",
+		"Nickname",
+		"Phone number",
+		"Darkest secret"
+	};
+	int i = 0;
 	system("clear");
-	std::cout << "Type a name : ";
-	std::getline(std::cin, name);
-	system("clear");
-	std::cout << "Type a surname : ";
-	std::getline(std::cin, last);
-	system("clear");
-	std::cout << "Type a nickname : ";
-	std::getline(std::cin, nick);
-	system("clear");
-	std::cout << "Type a phone-number : ";
-	std::getline(std::cin, phone);
-	system("clear");
-	std::cout << "Type a dark secret : ";
-	std::getline(std::cin, secret);
-	system("clear");
-    this->contacts[this->contact_index % this->max_contact_index] = Contact(name, last, nick, phone, secret);
+	while (i < 5)
+	{	
+		std::cout << "Type a " << contact[i] << " : ";
+		std::getline(std::cin, ret[i]);
+		if (std::cin.eof())
+			return ;
+		if (!ret[i].empty())
+			i++;
+	}
+    this->contacts[this->contact_index % this->max_contact_index] = \
+	Contact(ret[0], ret[1], ret[2], ret[3], ret[4]);
 	this->contact_index = (this->contact_index + 1) % this->max_contact_index;
-
 }
         
 void	PhoneBook::search_contact() {
@@ -109,6 +104,4 @@ void	PhoneBook::search_contact() {
 	std::cin.get();
 }
 
-PhoneBook::~PhoneBook()
-{
-}
+PhoneBook::~PhoneBook() {}

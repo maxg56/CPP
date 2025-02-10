@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:04:26 by max               #+#    #+#             */
-/*   Updated: 2025/02/06 10:06:44 by max              ###   ########.fr       */
+/*   Updated: 2025/02/10 17:20:09 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contace.hpp"
+
+Contact::Contact(){}
 
 Contact::Contact(std::string first_name, std::string last_name, std::string nickname,
                  std::string phone_number, std::string darkest_secret)

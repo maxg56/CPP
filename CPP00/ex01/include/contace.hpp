@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   contace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:56:50 by max               #+#    #+#             */
-/*   Updated: 2025/02/06 10:36:00 by max              ###   ########.fr       */
+/*   Updated: 2025/02/10 17:19:51 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Contact {
         std::string darkest_secret;
     
     public:
-        Contact() : first_name(""), last_name(""), nickname(""), phone_number(""), darkest_secret("") {}
+        Contact();
         Contact(std::string first_name, std::string last_name, \
                 std::string nickname,std::string phone_number, \
                 std::string darkest_secret);

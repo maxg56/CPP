@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maie.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 09:56:30 by max               #+#    #+#             */
-/*   Updated: 2025/02/06 10:26:34 by max              ###   ########.fr       */
+/*   Updated: 2025/02/10 17:23:23 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 int	main() {
 	PhoneBook	PhoneBook;
 	std::string		line;
-	std::string			add = "ADD";
-	std::string			search = "SEARCH";
-	std::string			exit = "EXIT";
+	std::string		add = "ADD";
+	std::string		search = "SEARCH";
+	std::string		exit = "EXIT";
 	
 	system("clear");
 	std::cout << "Hello ! Welcome to your new contact manager." << std::endl;

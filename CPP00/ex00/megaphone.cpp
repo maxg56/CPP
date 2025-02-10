@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:40:34 by max               #+#    #+#             */
-/*   Updated: 2025/02/06 10:33:42 by max              ###   ########.fr       */
+/*   Updated: 2025/02/10 17:22:36 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ int main(int argc, char const *argv[])
     {
         while (argv[i][j] != '\0')
         {
-            std::cout << (char)std::toupper(argv[i][j]) << std::endl;
+            std::cout << (char)std::toupper(argv[i][j]);
             j++;
         }
         j = 0;
         i++;
     }
-    
+      std::cout << std::endl;
     return 0;
 }
