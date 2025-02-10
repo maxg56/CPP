@@ -1,4 +1,4 @@
-.tmp/
+*/.tmp/
 .vscode 
 .compiled_count
 *.o

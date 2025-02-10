@@ -6,13 +6,13 @@
 #    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/06 10:57:10 by max              ###   ########.fr        #
+#    Updated: 2025/02/10 20:00:37 by max              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME        = PhoneBook
+NAME        = BraiiiiiiinnnzzzZ
 
 
 INCLUDE     = include
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Contact.cpp ./src/PhoneBook.cpp ./src/maie.cpp 
+SRC = ./src/main.cpp ./src/Zombie.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/
