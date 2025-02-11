@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 20:07:52 by max               #+#    #+#             */
-/*   Updated: 2025/02/11 11:26:57 by mgendrot         ###   ########.fr       */
+/*   Created: 2025/02/11 11:35:06 by mgendrot          #+#    #+#             */
+/*   Updated: 2025/02/11 12:56:32 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include <iostream>
+
+class Fixed
 {
-	Zombie *zombies = new Zombie[N];
-	
-	for (int i = 0; i < N; i++)
-	{
-		zombies[i] = Zombie(name);
-		zombies[i].Announce();
-	}
-	
-	return zombies;
-}
+	private:
+		int                 _fixedPointValue;
+    	static const int    _fractionalBits = 8;
+		
+	public:
+		Fixed();
+		Fixed(const Fixed& other);
+		Fixed& operator=(const Fixed& other);
+		int getRawBits(void) const;
+		void setRawBits(int const raw);
+		~Fixed();
+		
+};
+
+#endif

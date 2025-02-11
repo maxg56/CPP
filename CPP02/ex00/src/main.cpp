@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 20:07:52 by max               #+#    #+#             */
-/*   Updated: 2025/02/11 11:26:57 by mgendrot         ###   ########.fr       */
+/*   Created: 2025/02/11 11:45:27 by mgendrot          #+#    #+#             */
+/*   Updated: 2025/02/11 13:08:00 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
+#include "Fixed.hpp"
 
-Zombie* zombieHorde( int N, std::string name )
-{
-	Zombie *zombies = new Zombie[N];
+int main() {
+    Fixed a;
+    Fixed b(a);
+    Fixed c;
+    c = a;
 	
-	for (int i = 0; i < N; i++)
-	{
-		zombies[i] = Zombie(name);
-		zombies[i].Announce();
-	}
-	
-	return zombies;
+    std::cout << "a.getRawBits(): " << a.getRawBits() << std::endl;
+    std::cout << "b.getRawBits(): " << b.getRawBits() << std::endl;
+    std::cout << "c.getRawBits(): " << c.getRawBits() << std::endl;
+
+    return 0;
 }
+
+
