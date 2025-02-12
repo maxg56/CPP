@@ -3,21 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:12:38 by max               #+#    #+#             */
-/*   Updated: 2025/02/10 21:34:28 by max              ###   ########.fr       */
+/*   Updated: 2025/02/12 14:41:10 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
 HumanB::HumanB() {}
-HumanB::HumanB(std::string name) : name(name) {}
+HumanB::HumanB(std::string name) : name(name), weapon(NULL) {}
 
 
 void HumanB::attack(void) 
 {
+    if (this->weapon == NULL)
+    {
+        std::cout << this->name << " has no weapon" << std::endl;
+        return;
+    }
     std::cout << this->name << " attacks with his " << this->weapon->getType() << std::endl;
 }
 

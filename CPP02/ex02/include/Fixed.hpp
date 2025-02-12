@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:35:06 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/11 14:03:07 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/12 12:54:09 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <cmath>
 
+//friend 
 class Fixed
 {
 	private:
@@ -29,7 +30,6 @@ class Fixed
 		
 		Fixed(const Fixed& other);
 		Fixed& operator=(const Fixed& other);
-		friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 		
 		bool operator>(const Fixed& other) const;
 		bool operator<(const Fixed& other) const;
@@ -38,10 +38,11 @@ class Fixed
 		bool operator==(const Fixed& other) const;
 		bool operator!=(const Fixed& other) const;
 		
-		bool operator+(const Fixed& other) const;
-		bool operator-(const Fixed& other) const;
-		bool operator*(const Fixed& other) const;
-		bool operator/(const Fixed& other) const;
+		Fixed operator+(const Fixed& other) const;
+		Fixed operator-(const Fixed& other) const;
+		Fixed operator*(const Fixed& other) const;
+		Fixed operator/(const Fixed& other) const;
+		Fixed operator=(const Fixed& other) const;
 		
 		Fixed operator++();
 		Fixed operator++(int);
@@ -59,6 +60,7 @@ class Fixed
 		void setRawBits(int const raw);
 		~Fixed();
 };
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 
 #endif

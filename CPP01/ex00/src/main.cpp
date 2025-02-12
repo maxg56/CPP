@@ -3,27 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 19:52:31 by max               #+#    #+#             */
-/*   Updated: 2025/02/10 20:02:11 by max              ###   ########.fr       */
+/*   Updated: 2025/02/12 14:04:20 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-Zombie* newZombie(std::string name)
-{
-    Zombie *zombie = new Zombie(name);
-    zombie->Announce();
-    return zombie;
-}
-
-void randomChump(std::string name)
-{
-    Zombie zombie(name);
-    zombie.Announce();
-}
 
 int main(void)
 {   

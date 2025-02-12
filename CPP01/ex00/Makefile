@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/10 20:00:37 by max              ###   ########.fr        #
+#    Updated: 2025/02/12 12:12:37 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME        = BraiiiiiiinnnzzzZ
 
 INCLUDE     = include
 
-TMP 	   = ../.tmp/
+TMP 	   = .tmp/
 CC          = c++
 CFLAGS      = -Wall -Wextra -Werror -std=c++98
 
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Zombie.cpp ./src/main.cpp 
+SRC = ./src/Zombie.cpp ./src/main.cpp ./src/randomChump.cpp ./src/newZombie.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

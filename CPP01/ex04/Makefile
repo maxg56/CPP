@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/10 21:44:53 by max              ###   ########.fr        #
+#    Updated: 2025/02/12 12:12:56 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME        = file_replace
 
 INCLUDE     = include
 
-TMP 	   = ../.tmp/
+TMP 	   = .tmp/
 CC          = c++
 CFLAGS      = -Wall -Wextra -Werror -std=c++98
 

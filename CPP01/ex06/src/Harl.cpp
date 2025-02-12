@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 21:58:17 by max               #+#    #+#             */
-/*   Updated: 2025/02/10 23:28:15 by max              ###   ########.fr       */
+/*   Updated: 2025/02/12 14:29:20 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,19 @@ void Harl::complain(std::string level)
         if (arrayLevel[i] == level)
             break;
     }
-    // Gérer les cas en cascade
+
     switch (i) {
         case 0:
             this->debug();
-            // fallthrough
         case 1:
             this->info();
-            // fallthrough
         case 2:
             this->warning();
-            // fallthrough
         case 3:
             this->error();
             break;
         default:
+            std::cout << "[Probably complaining about insignificant problems ]" << std::endl;
             break;
     }
 }

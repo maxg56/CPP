@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = 
+SRC = ./src/Fixed.cpp ./src/FIxed_op.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/
