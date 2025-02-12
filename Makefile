@@ -6,7 +6,7 @@
 #    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/06 11:48:56 by max              ###   ########.fr        #
+#    Updated: 2025/02/12 22:56:40 by max              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME        =
 
 INCLUDE     = include
 
-TMP 	   = ../.tmp/
+TMP 	   = .tmp/
 CC          = c++
 CFLAGS      = -Wall -Wextra -Werror -std=c++98
 

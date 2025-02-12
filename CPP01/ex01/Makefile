@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Zombie.cpp ./src/main.cpp ./src/zombieHorde.cpp 
+SRC = ./src/main.cpp ./src/Zombie.cpp ./src/zombieHorde.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

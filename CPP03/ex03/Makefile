@@ -6,18 +6,18 @@
 #    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/06 11:48:56 by max              ###   ########.fr        #
+#    Updated: 2025/02/13 00:19:38 by max              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME        = 
+NAME        = DiamondTrap
 
 
 INCLUDE     = include
 
-TMP 	   = ../.tmp/
+TMP 	   = .tmp/
 CC          = c++
 CFLAGS      = -Wall -Wextra -Werror -std=c++98
 
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = 
+SRC = ./src/ClapTrap.cpp ./src/FragTrap.cpp ./src/ScavTrap.cpp ./src/DiamondTrap.cpp ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/
