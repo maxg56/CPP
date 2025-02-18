@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:54:14 by max               #+#    #+#             */
-/*   Updated: 2025/02/18 13:55:24 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:23:48 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ void	Cat::makeSound() const
 
 void	Cat::think() const
 {
-    
-    std::cout << "[Cat] : " +this->_brain->getIdea(this->_brain->getRandomIndex()) << std::endl;
+    if (this->_brain) {
+        int index = this->_brain->getRandomIndex();
+        std::cout << "[Cat] : " << this->_brain->getIdea(index) << std::endl;
+    } else {
+        std::cout << "[Cat] : I have no brain... (Error)" << std::endl;
+    }
 }

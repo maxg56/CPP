@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:47:30 by max               #+#    #+#             */
-/*   Updated: 2025/02/18 11:51:19 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:27:29 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class Animal
         std::string     getType() const;
         void            setType(std::string type);
         
-        virtual void    makeSound() const ;
+        virtual void    makeSound() const = 0;
+        virtual void    think() const = 0;
 };
 
 #endif

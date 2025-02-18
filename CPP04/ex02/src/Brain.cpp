@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:43:00 by max               #+#    #+#             */
-/*   Updated: 2025/02/18 13:59:12 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:24:10 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ Brain::Brain()
 		"I want to go to the arctic",
 		"I want to go to the antarctic",
 		"I want to go to the moon",
-		"I want to go to the mars"
+		"I want to go to the mars",
+		"I want to go to the venus",
+		"I want to go to the jupiter",
+		"I want to go to the saturn"
 	};
 	for (int i = 0; i < 100; i++)
 		this->_ideas[i] = examples[rand() % (sizeof(examples) / sizeof(std::string))];

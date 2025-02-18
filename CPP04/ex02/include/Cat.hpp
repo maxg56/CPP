@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:51:21 by max               #+#    #+#             */
-/*   Updated: 2025/02/18 13:55:06 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:22:53 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Cat : public Animal
         
         ~Cat();
         
-        void    think() const;
-        void    makeSound() const ;
+        void    think() const ;
+        void    makeSound() const;
 };
 
 

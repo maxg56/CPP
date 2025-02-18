@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/ClapTrap.cpp ./src/FragTrap.cpp ./src/ScavTrap.cpp ./src/DiamondTrap.cpp ./src/main.cpp 
+SRC = ./src/ClapTrap.cpp ./src/DiamondTrap.cpp ./src/FragTrap.cpp ./src/ScavTrap.cpp ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

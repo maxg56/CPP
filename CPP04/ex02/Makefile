@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: max <max@student.42.fr>                    +#+  +:+       +#+         #
+#    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/12 22:56:40 by max              ###   ########.fr        #
+#    Updated: 2025/02/18 11:47:11 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME        = 
+NAME        = Animal2
 
 
 INCLUDE     = include
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = 
+SRC = ./src/Animal.cpp ./src/Brain.cpp ./src/Cat.cpp ./src/Dog.cpp ./src/WrongAnimal.cpp ./src/WrongCat.cpp ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

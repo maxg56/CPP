@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Animal.cpp ./src/Dog.cpp ./src/Cat.cpp ./src/WrongCat.cpp ./src/WrongAnimal.cpp ./src/main.cpp 
+SRC = ./src/Animal.cpp ./src/Cat.cpp ./src/Dog.cpp ./src/WrongAnimal.cpp ./src/WrongCat.cpp ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

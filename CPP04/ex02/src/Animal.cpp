@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:50:58 by max               #+#    #+#             */
-/*   Updated: 2025/02/18 11:36:41 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:27:47 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,9 @@ Animal::~Animal()
 	std::cout << "[D] Default destructor called for type : " << this->_type << "." << std::endl; 
 }
 
-
-
 std::string 	Animal::getType() const 
 {
 	return this->_type;
-}
-
-void	Animal::makeSound() const 
-{
-	std::cout << "[Unknown Animal] Grrr..." << std::endl;
 }
 
 void	Animal::setType(std::string type) 

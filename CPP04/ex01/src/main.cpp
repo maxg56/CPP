@@ -5,26 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/13 00:18:35 by max               #+#    #+#             */
-/*   Updated: 2025/02/14 11:54:21 by mgendrot         ###   ########.fr       */
+/*   Created: 2025/02/13 10:10:23 by max               #+#    #+#             */
+/*   Updated: 2025/02/18 14:07:31 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-int main() 
+int	main() 
 {
-    std::cout << "=== Creating a DiamondTrap ===" << std::endl;
-    DiamondTrap diamond("Diamondy");
+	WrongAnimal	*unknown = new WrongAnimal();
+	Animal		*dog = new Dog();
+	Animal		*cat = new Cat();
 
-    std::cout << "\n=== Testing DiamondTrap Actions ===" << std::endl;
-    diamond.attack("Villain");
-    diamond.highFivesGuys();
-    diamond.whoAmI();
-    std::cout << diamond.getEnergyPoints() << std::endl;
-    std::cout << diamond.getHitPoints() << std::endl;
-    std::cout << diamond.getAttackDamage()<< std::endl;
+	
 
-    std::cout << "\n=== Destroying DiamondTrap ===" << std::endl;
-    return 0;
+	std::cout << unknown->getType() << " " << std::endl;
+	std::cout << dog->getType() << " " << std::endl;
+	std::cout << cat->getType() << " " << std::endl;
+
+	unknown->makeSound();
+	dog->makeSound();
+	delete unknown;
+
+	unknown = new WrongCat();
+	unknown->makeSound();
+	delete cat;
+	delete dog;
+	delete unknown;
 }

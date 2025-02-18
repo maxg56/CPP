@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 00:16:38 by max               #+#    #+#             */
-/*   Updated: 2025/02/13 00:35:49 by max              ###   ########.fr       */
+/*   Updated: 2025/02/14 11:57:08 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
 DiamondTrap::DiamondTrap(std::string name) 
-    : ClapTrap(name + "_clap_name"), ScavTrap(), FragTrap(), name(name) 
+    : ClapTrap(name + "_clap_name"), FragTrap(), name(name) 
 {
     this->_hitPoints = FragTrap::_hitPoints;      // 100 HP (FragTrap)
+    this->_attackDamage = FragTrap::_attackDamage; 
+    ScavTrap();
     this->_energyPoints = ScavTrap::_energyPoints;  // 50 EP (ScavTrap)
-    this->_attackDamage = FragTrap::_attackDamage;  // 30 AD (FragTrap)
     
     std::cout << "DiamondTrap " << name << " has been assembled!" << std::endl;
 }

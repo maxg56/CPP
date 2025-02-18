@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: max <max@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:42:55 by max               #+#    #+#             */
-/*   Updated: 2025/02/13 10:40:49 by max              ###   ########.fr       */
+/*   Updated: 2025/02/18 11:44:06 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Dog : public Animal
         
         ~Dog();
 
-        Brain* getBrain() const;
+        void	think() const;
         
         void	makeSound() const ;
 };
