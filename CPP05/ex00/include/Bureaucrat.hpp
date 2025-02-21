@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:08:08 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 15:19:13 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:39:55 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ class Bureaucrat
 		void			demote();
 
 		class GradeTooHighException : public std::exception 
-			{
-				public:
-					virtual const char *	what() const throw();
-			};
+		{
+			public:
+				virtual const char *	what() const throw();
+		};
 		class GradeTooLowException : public std::exception 
 			{
 				public:
