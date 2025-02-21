@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:25:52 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 17:55:00 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:19:47 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,14 +62,16 @@ void			Bureaucrat::promote()
 {
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
-	_grade--;
+	else
+		_grade--;
 }
 
 void			Bureaucrat::demote() 
 {
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
-	_grade++;
+	else
+		_grade++;
 }
 
 void			Bureaucrat::signForm(std::string name, bool sign)

@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:38:09 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 23:00:21 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:20:23 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main() {
 
     std::cout << "Original Data pointer: " << &data << std::endl;
 
-   	uintptr_t* raw = Serializer::serialize(&data);
+   	uintptr_t raw = Serializer::serialize(&data);
     std::cout << "Serialized value: " << raw << std::endl;
 
     Data* deserializedData = Serializer::deserialize(raw);

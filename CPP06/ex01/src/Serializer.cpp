@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 22:39:42 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 22:56:53 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:20:09 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ uintptr_t	Serializer::serialize(Data *ptr)
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
 
-Data	*Serializer::unserialize(uintptr_t raw)
+Data	*Serializer::deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data *>(raw));
 }
