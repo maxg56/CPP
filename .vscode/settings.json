@@ -73,6 +73,7 @@
         "__functional_base": "cpp",
         "__node_handle": "cpp",
         "__memory": "cpp",
-        "codecvt": "cpp"
+        "codecvt": "cpp",
+        "__config": "cpp"
     }
 }

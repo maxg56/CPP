@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:08:08 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 19:37:51 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:26:08 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <string>
 #include <stdexcept>
 #include <climits>
-#include "AForm.hpp"
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -44,15 +44,15 @@ class Bureaucrat
 		
 
 		class GradeTooHighException : public std::exception 
-			{
-				public:
-					virtual const char *	what() const throw();
-			};
+		{
+			public:
+				virtual const char *	what() const throw();
+		};
 		class GradeTooLowException : public std::exception 
-			{
-				public:
-					virtual const char *	what() const throw();
-			};
+		{
+			public:
+				virtual const char *	what() const throw();
+		};
 
 };
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const &other) ;

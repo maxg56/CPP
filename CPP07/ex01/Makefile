@@ -6,13 +6,13 @@
 #    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/22 15:29:32 by mgendrot         ###   ########.fr        #
+#    Updated: 2025/02/22 15:50:28 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME        = Base
+NAME        = iter
 
 
 INCLUDE     = include
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/main.cpp ./src/Base.cpp 
+SRC = ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

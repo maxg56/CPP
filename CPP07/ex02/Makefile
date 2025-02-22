@@ -6,20 +6,20 @@
 #    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/22 15:29:32 by mgendrot         ###   ########.fr        #
+#    Updated: 2025/02/22 16:10:13 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
 
-NAME        = Base
+NAME        = Array
 
 
 INCLUDE     = include
 
 TMP 	   = .tmp/
-CC          = c++
-CFLAGS      = -Wall -Wextra -Werror -std=c++98
+CC          = g++
+CFLAGS      = -Wall -Wextra -Werror -std=c++98 -g
 
 RM          = rm -f
 MKDIR       = mkdir
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/main.cpp ./src/Base.cpp 
+SRC = ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

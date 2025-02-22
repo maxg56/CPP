@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 17:03:55 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 18:27:07 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:30:51 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ std::ostream &	operator<<(std::ostream & o, Form const &other)
 	return o;
 }
 
-std::string		Form::getName() const { return this->_name; }
+std::string		Form::getName() const { return _name; }
 bool			Form::getSigned() const { return _signed; }
 int				Form::getSignGrade() const { return _signGrade; }
 int				Form::getExecuteGrade() const { return _executeGrade; }
@@ -77,10 +77,10 @@ void			Form::beSigned(Bureaucrat &bureaucrat)
 
 const char *	Form::GradeTooHighException::what() const throw() 
 {
-	return ("The bureaucrat is too senior to do this.");
+	return ( COLOR_RED "The bureaucrat is too senior to do this." COLOR_RESET);
 }
 
 const char *	Form::GradeTooLowException::what() const throw() 
 {
-	return ("The bureaucrat don't have the ability to do this.");
+	return ( COLOR_RED "The bureaucrat don't have the ability to do this." COLOR_RESET);
 }

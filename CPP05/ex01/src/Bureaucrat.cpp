@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 14:25:52 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/21 16:19:47 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:26:01 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,3 +91,4 @@ const char	*  Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade is too low.";
 }
+

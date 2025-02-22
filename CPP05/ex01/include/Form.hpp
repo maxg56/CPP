@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 16:23:11 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/20 17:53:10 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:27:20 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 #define COLOR_BLUE "\033[34m"
 #define COLOR_CYAN "\033[36m"
 
+class Bureaucrat;
 
 class  Form
 {
@@ -53,15 +54,15 @@ class  Form
 		void			beSigned(Bureaucrat &bureaucrat);
 
 		class GradeTooHighException : public std::exception 
-			{
-				public:
-					virtual const char *	what() const throw();
-			};
+		{
+			public:
+				virtual const char *	what() const throw();
+		};
 		class GradeTooLowException : public std::exception 
-			{
-				public:
-					virtual const char *	what() const throw();
-			};
+		{
+			public:
+				virtual const char *	what() const throw();
+		};
 };
 std::ostream & operator<<(std::ostream & o, Form const &other);
 

@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:22:54 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/21 17:44:35 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:17:35 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ int	main()
 	}
 	try
 	{
-		Joe = new Bureaucrat("Joe",122);
+		Joe = new Bureaucrat("Joe",150);
 		Joe->demote();
 		std::cout << *Joe << std::endl;
 		
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "\033[33m[1] Incrementing grade of " << Joe->getName() <<
+		std::cerr << "\033[33m[1] Incrementing grade of  Joe" <<
 		" failed: " << e.what() << "\033[0m" << std::endl;
 	}
 	delete Joe;
