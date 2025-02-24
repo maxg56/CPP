@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:35:44 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/22 15:38:33 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:34:56 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ T		max(T a, T b)
 	return (b >= a) ? b : a;
 }
 
+
 int main( void ) 
 {
-	int a = 2;
-	int b = 3;
-	::swap( a, b );
+	const int a = 2;
+	const int b = 3;
+	//::swap( a, b );
 	std::cout << "a = " << a << ", b = " << b << std::endl;
 	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
 	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;

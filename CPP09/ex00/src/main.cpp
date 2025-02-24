@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:34:33 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/24 15:34:12 by mgendrot         ###   ########.fr       */
+/*   Created: 2025/02/24 08:40:24 by mgendrot          #+#    #+#             */
+/*   Updated: 2025/02/24 13:18:52 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef COMMAND_HPP
-#define COMMAND_HPP
-
-#include <iostream>
-#include <string>
+#include "BitcoinExchange.hpp"
 
 
 
-template<typename T>
-void	swap(T &a, T &b);
+int main(int ac , char **av)
+{
+	if (ac != 2)
+	{
+		std::cout << "Error: could not open file." << std::endl;
+		return 0;	
+	}
 
-template<typename T>
-T	min(T a, T b);
-
-template<typename T>
-T	max(T a, T b);
-
-
-#endif
+	
+	
+}

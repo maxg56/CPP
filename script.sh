@@ -16,11 +16,12 @@ num_exercises=$1
 # Trouver le dernier dossier CPPXX (trié numériquement)
 last_cpp_dir=$(find . -maxdepth 1 -type d -name "CPP[0-9]*" | sort -V | tail -n 1)
 
+
 if [ -z "$last_cpp_dir" ]; then
     new_cpp_dir="CPP00"
 else
     last_number=$(echo "$last_cpp_dir" | grep -o '[0-9]*$')
-    new_number=$((last_number + 1))
+    new_number=$((10#${last_number#0} + 1))
     new_cpp_dir=$(printf "CPP%02d" "$new_number")
 fi
 
