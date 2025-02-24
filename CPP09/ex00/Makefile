@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/main.cpp 
+SRC = ./src/main.cpp ./src/Date.cpp ./src/BitcoinExchange.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

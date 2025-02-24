@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Accoumt.cpp ./src/testts.cpp 
+SRC = ./src/testts.cpp ./src/Accoumt.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

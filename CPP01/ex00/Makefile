@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Zombie.cpp ./src/main.cpp ./src/newZombie.cpp ./src/randomChump.cpp 
+SRC = ./src/Zombie.cpp ./src/newZombie.cpp ./src/main.cpp ./src/randomChump.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

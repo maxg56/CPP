@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maxence <maxence@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 08:33:12 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/24 13:26:26 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:16:34 by maxence          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@
 #include <map>
 #include <sstream>
 #include <cstdlib>
+#include "Date.hpp"
 
 #define DATA_CSV "data.csv"
 
 class BitcoinExchange
 {
 	private:
-		std::map<std::string,float> _data_btc; 
-		std::map<std::string,float>_data_input;
+		std::map<Date,float> _data_btc; 
+		std::map<Date,float>_data_input;
 		
-		bool 	_open_data(const std::string &filename, char sp,std::map<std::string, float> &data);
+		bool 	_open_data(const std::string &filename, char sp,std::map<Date, float> &data);
 		void	_printe();
 		
 	public:

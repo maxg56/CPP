@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maxence <maxence@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 08:40:24 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/24 13:18:52 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/24 22:45:14 by maxence          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int main(int ac , char **av)
 		std::cout << "Error: could not open file." << std::endl;
 		return 0;	
 	}
-
+	BitcoinExchange exchange(av[1]);
+	
 	
 	
 }

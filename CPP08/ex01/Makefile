@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/Span.cpp ./src/main.cpp 
+SRC = ./src/main.cpp ./src/Span.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/
