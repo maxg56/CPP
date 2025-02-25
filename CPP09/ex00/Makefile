@@ -6,7 +6,7 @@
 #    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/24 08:29:07 by mgendrot         ###   ########.fr        #
+#    Updated: 2025/02/25 13:03:09 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ INCLUDE     = include
 
 TMP 	   = .tmp/
 CC          = c++
-CFLAGS      = -Wall -Wextra -Werror -std=c++98
+CFLAGS      = -Wall -Wextra -Werror -std=c++98 -g
 
 RM          = rm -f
 MKDIR       = mkdir
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/main.cpp ./src/Date.cpp ./src/BitcoinExchange.cpp 
+SRC = ./src/BitcoinExchange.cpp ./src/Date.cpp ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/

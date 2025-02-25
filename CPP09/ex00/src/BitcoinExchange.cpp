@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maxence <maxence@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 13:08:41 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/24 23:13:22 by maxence          ###   ########.fr       */
+/*   Updated: 2025/02/25 14:10:56 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,120 +16,168 @@
 BitcoinExchange::BitcoinExchange(){}
 BitcoinExchange::~BitcoinExchange(){}
 
-BitcoinExchange::BitcoinExchange(std::string filename)
+BitcoinExchange::BitcoinExchange(std::string &filename)
 {
 	
-	if (!this->_open_data(DATA_CSV,',',this->_data_btc) || !this->_open_data(filename,'|',this->_data_input))
-		return ;
-	this->_printe();
-	
+	this->_is_false = true;
+	this->_open(DATA_CSV, false);
+	if (!this->_is_false)
+		return;
+ 	this->_open(filename, true);
+	if (!this->_is_false)
+		return;
 }
 
-BitcoinExchange::BitcoinExchange(BitcoinExchange const &src)
-{
-	*this = src;
-}
 
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &src){ *this = src;}
 BitcoinExchange &	BitcoinExchange::operator=(BitcoinExchange const &other) 
 {
 	if (this != &other) {
 		this->_data_btc = other._data_btc;
-		this->_data_input = other._data_input;
 	}
 	return *this;
 }
 
-
-static Date _get_date(std::string date)
+Date BitcoinExchange::_get_date(std::string date)
 {
-	std::string token;
-	std::istringstream stream(date);
-	std::getline(stream, token, '-');
-	int year = atoi(token.c_str());
-	std::getline(stream, token, '-');
-	int month = atoi(token.c_str());
-	std::getline(stream, token, '-');
-	int day = atoi(token.c_str());
-	return Date(day, month, year);
+    std::string token;
+    std::istringstream stream(date);
+    int year = 0, month = 0, day = 0;
+
+    std::getline(stream, token, '-');
+    try {
+        year = std::atoi(token.c_str());
+    } catch (const std::invalid_argument& e) {
+        throw BadInputException();
+    }
+    std::getline(stream, token, '-');
+    try {
+        month = std::atoi(token.c_str());
+    } catch (const std::invalid_argument& e) {
+        throw BadInputException();
+    }
+    std::getline(stream, token, '-');
+    try {
+        day = atoi(token.c_str());
+    } catch (const std::invalid_argument& e) {
+        throw BadInputException();
+    }
+    return Date(day, month, year);
 }
 
-bool    BitcoinExchange::_open_data(const std::string &filename, char sp,std::map<Date, float> &data) 
+
+void BitcoinExchange::_openData(std::string line)
+{
+	std::istringstream stream(line);
+	std::string token;
+	Date Key;
+	bool is_key = true;
+	
+	while (std::getline(stream, token, ',')) 
+	{
+		if (is_key) 
+		{
+			if (token == "date ")
+				break ;
+			Key = _get_date(token);
+			is_key = false;
+		} 
+		else 
+		{
+			this->_data_btc[Key] = atof(token.c_str());
+			is_key = true;
+		}
+	}
+	if (!is_key) 
+	{
+		this->_data_btc[Key] = -42;
+		is_key = true;
+	}
+}
+
+void  BitcoinExchange::_print(std::string line)
+{
+	try
+	{
+		if (line == "date | value") 
+			return ;
+		std::istringstream stream(line);
+		std::string token;
+		bool is_key = true;
+		float nb_btc = 0.0f, val_btc = 0.0f;
+		Date Key , date;
+
+		while (std::getline(stream, token, '|')) 
+		{
+			if (is_key) 
+			{
+				Key = Date(_get_date(token));
+				if (!Key.is_valide)
+					throw BadInputException();
+				date = Key;
+				// Recherche manuelle de la date disponible la plus proche
+				std::map<Date, float>::iterator it = this->_data_btc.find(Key);
+				if (it == this->_data_btc.end()) 
+				{
+					it = this->_data_btc.begin();
+					while (it != this->_data_btc.end() && it->first <= Key)
+						++it;
+					if (it == this->_data_btc.begin()) 
+						throw std::runtime_error("Error: No valid exchange rate found for date " + token);
+					--it;
+				}
+				Key = it->first;
+				is_key = false;
+			} 
+			else 
+			{
+				std::stringstream ss(token);
+				if (!(ss >> nb_btc) || !ss.eof())
+					throw BadFormatException();
+				if (nb_btc < 0 || nb_btc > 1000)
+					throw OutOfRangeException();
+				val_btc = nb_btc == 1 ?  this->_data_btc[Key] :nb_btc * this->_data_btc[Key];
+				std::cout << date << " => " << nb_btc << " = " << val_btc << std::endl;
+				is_key = true;
+			}
+		}
+		if (!is_key) 
+			throw BadFormatException();
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << e.what() << " (" << line << ")" << std::endl;
+	}
+}
+
+void   BitcoinExchange::_open(
+	const std::string &filename,bool is_pirt)
 {
 	try 
 	{
 		std::string line;
-		Date Key;
-		bool is_key = true;
 		std::ifstream file(filename.c_str());
 		if (!file.is_open()) 
-            throw std::ios_base::failure(".");
+			throw std::ios_base::failure(".");
 		while (std::getline(file, line)) 
 		{ 
-			std::istringstream stream(line);
-			std::string token;
-
-			while (std::getline(stream, token, sp)) 
-			{
-				if (is_key) 
-				{
-					if (token == "date")
-						continue;
-					Key = _get_date(token);
-					if (sp == '|')
-						std::cout << "[ " << Key<<" ]" << std::endl;
-					is_key = false;
-				} 
-				else 
-				{
-					data[Key] = atof(token.c_str());
-					is_key = true;
-				}
-			}
-			if (!is_key) 
-			{
-				data[Key]; 
-				is_key = true;
-			}
+			if (is_pirt)
+				this->_print(line);
+			else
+				this->_openData(line);
 		}
 		file.close();
 	}
 	catch (const std::ios_base::failure &e) 
 	{
+		this->_is_false = false;
 		std::cerr << "Erreur : Impossible d'ouvrir le fichier '" 
 		<< filename << e.what() << std::endl;
-		return false;
 	}
-	return true;
 }
 
 
 
-// 2011-01-03 => 3 = 0.
-void	BitcoinExchange::_printe()
-{
-	std::map<Date, float>::iterator  it;
-	for (it = this->_data_input.begin(); it != this->_data_input.end(); ++it) 
-	{
-		std::cout << "[ " << it->first << " =>" << it->second << " ]" << std::endl;
-		if (!it->second)
-			std::cout << "Error: bad input ="  << it->second << std::endl;
-		else if (it->second < 0 && it->second > 1000)
-		 	std::cout << "Error: not a positive number." << std::endl;
-		else
-		{
-			float val_btc ;
-			Date date = it->first;
-			while (_data_btc.find(date) != this->_data_btc.end())
-				date--;
-			std::cout << "date = " << date << std::endl;
-			std::cout << "it->second = " << it->second << std::endl;
-			std::cout << "this->_data_btc[date] = " << this->_data_btc[date] << std::endl;
-			val_btc = it->second * this->_data_btc[date];
-			std::cout << it->first << " =>" << it->second << " = " << val_btc << "." <<  std::endl;
-			
-		}
-		
-        
-    }
-}
+
+
 

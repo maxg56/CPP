@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:53:28 by max               #+#    #+#             */
-/*   Updated: 2025/02/10 17:21:51 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:31:30 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	PhoneBook::search_contact() {
     if ((index == 0 && ret[0] != '0') || (index > 7 || index < 0)) {
 		std::cout << "Please enter a valid digit ! Abort..." << std::endl; sleep(1); return;
 	}
-	if (index >= this->contact_index) {
+	if (index >= this->contact_index) 
+	{
 		std::cout << "No contact found ! Abort..." << std::endl; sleep(1); return;
 	}
 	std::cout << "Name : " << this->contacts[index].get_first_name() << std::endl;

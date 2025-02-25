@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maxence <maxence@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 08:33:12 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/24 22:16:34 by maxence          ###   ########.fr       */
+/*   Updated: 2025/02/25 14:15:02 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,44 @@
 class BitcoinExchange
 {
 	private:
-		std::map<Date,float> _data_btc; 
-		std::map<Date,float>_data_input;
+		std::map<Date, float> _data_btc; 
+		bool _is_false;
 		
-		bool 	_open_data(const std::string &filename, char sp,std::map<Date, float> &data);
-		void	_printe();
-		
+		void _open(const std::string &filename, bool is_pirt);
+		void _openData(std::string line);
+		void _print(std::string line);
+		Date  _get_date(std::string date);
 	public:
 		BitcoinExchange();
-		BitcoinExchange(std::string filename);
-		BitcoinExchange(BitcoinExchange const &src);
+		BitcoinExchange(std::string &filename);
+		BitcoinExchange(const BitcoinExchange &src);
 		~BitcoinExchange();
-		BitcoinExchange &	operator=(BitcoinExchange const &other);
+		BitcoinExchange &operator=(const BitcoinExchange &other);
+		
+		class OutOfRangeException : public std::exception 
+		{
+			public:
+				virtual const char *what() const throw() 
+				{
+					return "Error: Value is out of range.";
+				}
+		};
+		
+		class BadInputException : public std::exception 
+		{
+			public:
+				virtual const char *what() const throw() 
+				{
+					return "Error: Invalid input detected.";
+				}
+		};
+		
+		class BadFormatException : public std::exception 
+		{
+			public:
+				virtual const char *what() const throw() { return "Error: Incorrect data format."; }
+		};
+
 };
 
 

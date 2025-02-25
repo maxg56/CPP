@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Date.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maxence <maxence@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 22:11:06 by maxence           #+#    #+#             */
-/*   Updated: 2025/02/24 22:46:10 by maxence          ###   ########.fr       */
+/*   Updated: 2025/02/25 09:51:07 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ class Date
         int _day;
         int _month;
         int _year;
+        
         void _maintenant();
         bool _bissextile() const;
         int  _longueur_mois(int month) const;
         void _check_date();
 
     public:
+        bool is_valide;
         Date();
         Date(int day, int month, int year);
         Date(Date const &src);

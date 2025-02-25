@@ -7,7 +7,9 @@ Date::Date() {
 }
 
 // Constructeur avec paramètres
-Date::Date(int day, int month, int year) : _day(day), _month(month), _year(year) {
+Date::Date(int day, int month, int year) 
+: _day(day), _month(month), _year(year) ,is_valide(true) 
+{
     _check_date();
 }
 
@@ -35,20 +37,20 @@ bool Date::_bissextile() const {
     return (_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0);
 }
 
-// Retourne le nombre de jours du mois donné
 int Date::_longueur_mois(int month) const {
+    if (month < 1 || month > 12) // Vérifier la validité de month
+        return 0;
     static const int jours_par_mois[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     if (month == 2 && _bissextile())
         return 29;
     return jours_par_mois[month - 1];
 }
 
-// Vérifie la validité de la date
 void Date::_check_date() {
-    if (_month < 1 || _month > 12)
-        _month = 1;
-    if (_day < 1 || _day > _longueur_mois(_month))
-        _day = 1;
+    this->is_valide = true; // Par défaut, on considère que la date est valide
+    if (_month < 1 || _month > 12 || _day < 1 || _day > _longueur_mois(_month)) {
+        this->is_valide = false;
+    }
 }
 
 // Initialise la date au jour actuel
@@ -58,6 +60,7 @@ void Date::_maintenant() {
     _day = ltm->tm_mday;
     _month = ltm->tm_mon + 1;
     _year = ltm->tm_year + 1900;
+    this->is_valide = true;
 }
 
 // Opérateurs de comparaison
@@ -86,7 +89,8 @@ Date Date::operator++(int) {
     return tmp;
 }
 
-Date &Date::operator--() {
+Date &Date::operator--() 
+{
     if (--_day < 1) {
         if (--_month < 1) {
             _month = 12;
@@ -97,30 +101,35 @@ Date &Date::operator--() {
     return *this;
 }
 
-Date Date::operator--(int) {
+Date Date::operator--(int)
+{
     Date tmp(*this);
-    (*this)--;
+    --(*this);
     return tmp;
 }
 
 // Opérateurs arithmétiques
-Date &Date::operator+=(int days) {
+Date &Date::operator+=(int days) 
+{
     while (days--) ++(*this);
     return *this;
 }
 
-Date &Date::operator-=(int days) {
+Date &Date::operator-=(int days) 
+{
     while (days--) --(*this);
     return *this;
 }
 
-Date Date::operator+(int days) const {
+Date Date::operator+(int days) const 
+{
     Date tmp(*this);
     tmp += days;
     return tmp;
 }
 
-Date Date::operator-(int days) const {
+Date Date::operator-(int days) const 
+{
     Date tmp(*this);
     tmp -= days;
     return tmp;

@@ -5,25 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 08:40:24 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/25 13:12:40 by mgendrot         ###   ########.fr       */
+/*   Created: 2025/02/25 14:24:21 by mgendrot          #+#    #+#             */
+/*   Updated: 2025/02/25 14:57:06 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#include "RPN.hpp"
 
+int main(int argc, char* argv[]) {
+    if (argc != 2) {
+        std::cout << "Usage: rpn_calculator <expression>" << std::endl;
+        return 1;
+    }
 
+    std::string input = argv[1];
+    RPN calculator;
+    calculator.calculate(input);
 
-int main(int ac , char **av)
-{
-	if (ac != 2)
-	{
-		std::cout << "Error: could not open file." << std::endl;
-		return 0;	
-	}
-	std::string f = av[1];
-	BitcoinExchange exchange(f);
-	
-	
-	
+    return 0;
 }
