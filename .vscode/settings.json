@@ -74,6 +74,7 @@
         "__node_handle": "cpp",
         "__memory": "cpp",
         "codecvt": "cpp",
-        "__config": "cpp"
+        "__config": "cpp",
+        "*.tpp": "cpp"
     }
 }

@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:23:57 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/25 15:24:09 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/25 16:50:59 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,10 @@
 #include "RPN.hpp"
 
 RPN::RPN(){}
-
-RPN::~RPN()
-{
-	return;
-}
-
-RPN::RPN(std::stack<double> number)
-{
-	this->numbers = number;
-}
-
-RPN::RPN(const RPN &var)
-{
-	*this = var;
-}
-
-RPN &RPN::operator=(const RPN &var)
-{
-	this->numbers = var.numbers;
-	return (*this);
-}
+RPN::~RPN(){}
+RPN::RPN(std::stack<double> number){this->numbers = number;}
+RPN::RPN(const RPN &var){*this = var;}
+RPN &RPN::operator=(const RPN &var){this->numbers = var.numbers;return (*this);}
 
 void RPN::calculate(std::string input)
 {
@@ -83,6 +66,7 @@ void RPN::calculate(std::string input)
 						numbers.push(a / b);
 						break;
 				default:
+					throw InputException();
 					break;
 				}
 			}
