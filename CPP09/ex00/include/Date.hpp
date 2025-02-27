@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 22:11:06 by maxence           #+#    #+#             */
-/*   Updated: 2025/02/25 09:51:07 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:27:16 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Date
         void _maintenant();
         bool _bissextile() const;
         int  _longueur_mois(int month) const;
-        void _check_date();
 
     public:
         bool is_valide;
@@ -42,12 +41,7 @@ class Date
         Date &operator--();   // Préfixe (--d)
         Date operator--(int); // Suffixe (d--)
 
-        // Opérations arithmétiques
-        Date &operator+=(int days);
-        Date &operator-=(int days);
-        Date operator+(int days) const;
-        Date operator-(int days) const;
-
+     
         // Comparaisons
         bool operator==(Date const &rhs) const;
         bool operator!=(Date const &rhs) const;
@@ -57,6 +51,7 @@ class Date
         bool operator<=(Date const &rhs) const;
 
         // Getters
+        bool check_date();
         int getDay() const;
         int getMonth() const;
         int getYear() const;

@@ -1,28 +1,16 @@
 #include "Date.hpp"
 #include <ctime>
 
-// Constructeur par défaut : initialise la date à la date actuelle
-Date::Date() {
-    _maintenant();
-}
-
-// Constructeur avec paramètres
+Date::Date() {_maintenant();}
 Date::Date(int day, int month, int year) 
-: _day(day), _month(month), _year(year) ,is_valide(true) 
+: _day(day), _month(month), _year(year) ,is_valide(true)
 {
-    _check_date();
+     check_date();
 }
-
-// Constructeur par copie
-Date::Date(Date const &src) 
-{
-    *this = src;
-}
-
-// Destructeur
+Date::Date(Date const &src) {*this = src;}
 Date::~Date() {}
 
-// Opérateur d'affectation
+
 Date &Date::operator=(Date const &other) {
     if (this != &other) {
         _day = other._day;
@@ -32,7 +20,6 @@ Date &Date::operator=(Date const &other) {
     return *this;
 }
 
-// Détermine si l'année est bissextile
 bool Date::_bissextile() const {
     return (_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0);
 }
@@ -46,11 +33,13 @@ int Date::_longueur_mois(int month) const {
     return jours_par_mois[month - 1];
 }
 
-void Date::_check_date() {
-    this->is_valide = true; // Par défaut, on considère que la date est valide
+bool Date::check_date() {
+    this->is_valide = true;
     if (_month < 1 || _month > 12 || _day < 1 || _day > _longueur_mois(_month)) {
         this->is_valide = false;
+        return false;
     }
+    return true;
 }
 
 // Initialise la date au jour actuel
@@ -71,7 +60,6 @@ bool Date::operator>(Date const &rhs) const { return rhs < *this; }
 bool Date::operator<=(Date const &rhs) const { return !(rhs < *this); }
 bool Date::operator>=(Date const &rhs) const { return !(*this < rhs); }
 
-// Opérateurs d'incrémentation et de décrémentation
 Date &Date::operator++() {
     if (++_day > _longueur_mois(_month)) {
         _day = 1;
@@ -108,39 +96,10 @@ Date Date::operator--(int)
     return tmp;
 }
 
-// Opérateurs arithmétiques
-Date &Date::operator+=(int days) 
-{
-    while (days--) ++(*this);
-    return *this;
-}
-
-Date &Date::operator-=(int days) 
-{
-    while (days--) --(*this);
-    return *this;
-}
-
-Date Date::operator+(int days) const 
-{
-    Date tmp(*this);
-    tmp += days;
-    return tmp;
-}
-
-Date Date::operator-(int days) const 
-{
-    Date tmp(*this);
-    tmp -= days;
-    return tmp;
-}
-
-// Getters
 int Date::getDay() const { return _day; }
 int Date::getMonth() const { return _month; }
 int Date::getYear() const { return _year; }
 
-// Surcharge de l'opérateur de sortie
 std::ostream &operator<<(std::ostream &o, Date const &i) {
     o << (i.getDay() < 10 ? "0" : "") << i.getDay() << "-"
       << (i.getMonth() < 10 ? "0" : "") << i.getMonth() << "-"

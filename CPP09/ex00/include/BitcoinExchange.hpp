@@ -6,7 +6,7 @@
 /*   By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 08:33:12 by mgendrot          #+#    #+#             */
-/*   Updated: 2025/02/25 14:15:02 by mgendrot         ###   ########.fr       */
+/*   Updated: 2025/02/27 02:01:13 by mgendrot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class BitcoinExchange
 		void _openData(std::string line);
 		void _print(std::string line);
 		Date  _get_date(std::string date);
+		
 	public:
 		BitcoinExchange();
 		BitcoinExchange(std::string &filename);
@@ -42,19 +43,13 @@ class BitcoinExchange
 		class OutOfRangeException : public std::exception 
 		{
 			public:
-				virtual const char *what() const throw() 
-				{
-					return "Error: Value is out of range.";
-				}
+				virtual const char *what() const throw() {return "Error: Value is out of range.";}
 		};
 		
 		class BadInputException : public std::exception 
 		{
 			public:
-				virtual const char *what() const throw() 
-				{
-					return "Error: Invalid input detected.";
-				}
+				virtual const char *what() const throw() {return "Error: Invalid input detected.";}
 		};
 		
 		class BadFormatException : public std::exception 

@@ -6,7 +6,7 @@
 #    By: mgendrot <mgendrot@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/06 10:15:47 by max               #+#    #+#              #
-#    Updated: 2025/02/25 17:41:07 by mgendrot         ###   ########.fr        #
+#    Updated: 2025/02/26 19:58:34 by mgendrot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ TERM_CLEAR_LINE     =   \033[2K\r
 #                                   Sources                                    #
 # **************************************************************************** #
 
-SRC = ./src/main.cpp ./src/PmergeMe.cpp 
+SRC = ./src/main.cpp 
 
 
 OBJ_DIR       = $(TMP)obj/
